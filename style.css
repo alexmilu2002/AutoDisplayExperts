@@ -61,7 +61,7 @@
     }
     .hero-photo {
       position: absolute; inset: 0; z-index: 0;
-      background: url('https://9to5google.com/wp-content/uploads/sites/4/2024/03/android-auto-screen-2024-2.jpg') center/cover no-repeat;
+      background: url('https://www.bmw.nl/de/shop/ls/images/connected-drive/base/v4/Base_CarPlay/images/20240515083418-PDF_1200x1200__0004_Apple_Car_Play_8387f3a59b3163626e80d124575e8487.jpg') center/cover no-repeat;
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
