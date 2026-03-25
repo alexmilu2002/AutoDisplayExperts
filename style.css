@@ -1,0 +1,489 @@
+    :root {
+      --black: #080a0e;
+      --surface: #0f1218;
+      --surface2: #161b24;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00d4ff;
+      --accent2: #ff6a00;
+      --text: #e8edf5;
+      --muted: #6b7a90;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      backdrop-filter: blur(20px);
+      background: rgba(8,10,14,0.9);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: var(--black);
+      font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 4px; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 48px 80px;
+    }
+    .hero-photo {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('https://9to5google.com/wp-content/uploads/sites/4/2024/03/android-auto-screen-2024-2.jpg') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        100deg,
+        rgba(8,10,14,0.97) 0%,
+        rgba(8,10,14,0.88) 45%,
+        rgba(8,10,14,0.35) 100%
+      );
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 2;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 60% 80% at 20% 50%, black 20%, transparent 80%);
+    }
+    .hero-content {
+      position: relative; z-index: 3;
+      max-width: 660px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 700; line-height: 1.05;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p {
+      font-size: 1.1rem; color: rgba(232,237,245,0.8); max-width: 500px;
+      margin-bottom: 36px; line-height: 1.75;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .pill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(15,18,24,0.85);
+      border: 1px solid rgba(0,212,255,0.2);
+      padding: 9px 16px; border-radius: 6px;
+      font-size: 0.88rem; font-weight: 500; color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366; color: #000;
+      font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 14px 26px; border-radius: 6px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.4);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.07); color: var(--text);
+      font-family: 'Rajdhani', sans-serif; font-weight: 600;
+      font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 14px 26px; border-radius: 6px; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: border-color 0.2s, color 0.2s; backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* WhatsApp SVG icon helper */
+    .wa-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.9rem; font-weight: 500; color: var(--muted);
+    }
+    .trust-item strong { color: var(--text); }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 48px; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.1; margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--muted); max-width: 500px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── PHOTO GALLERY / RESULTS ── */
+    .gallery-section { background: var(--surface); padding: 96px 0; }
+    .gallery-section .container { padding: 0 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 200px;
+      gap: 3px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .gallery-item {
+      position: relative; overflow: hidden;
+      background: var(--surface2);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-caption {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(8,10,14,0.85) 0%, transparent 55%);
+      display: flex; align-items: flex-end;
+      padding: 18px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-caption span {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    /* Placeholder for user photos */
+    .gallery-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      border: 2px dashed rgba(0,212,255,0.2);
+      cursor: pointer;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .gallery-placeholder:hover { border-color: var(--accent); background: rgba(0,212,255,0.04); }
+    .gallery-placeholder-icon { font-size: 2rem; opacity: 0.4; }
+    .gallery-placeholder-text { font-size: 0.78rem; color: var(--muted); text-align: center; padding: 0 12px; }
+
+    .transform-strip {
+      margin-top: 40px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      border-radius: 10px; overflow: hidden;
+    }
+    .transform-item {
+      background: var(--black); padding: 32px 24px; text-align: center;
+    }
+    .transform-before { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .transform-arrow { font-size: 1.2rem; color: var(--accent); margin: 4px 0; }
+    .transform-after { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+
+    /* ── SPECIALTIES ── */
+    .spec-section { background: var(--black); }
+    .spec-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+    }
+    .spec-card {
+      background: var(--surface); padding: 40px 32px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .spec-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .spec-card:hover::before { transform: scaleX(1); }
+    .spec-card:hover { background: var(--surface2); }
+    .spec-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--white);
+      margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+    }
+    .spec-brand span { color: var(--accent); }
+    .spec-models { list-style: none; }
+    .spec-models li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.92rem; color: var(--muted);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+    }
+    .spec-models li:last-child { border-bottom: none; }
+    .spec-models li::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+
+    /* ── SERVICES WITH REAL IMAGE ── */
+    .services-section { background: var(--surface); }
+    .services-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .services-photo {
+      border-radius: 12px; overflow: hidden;
+      height: 420px; position: relative;
+    }
+    .services-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .services-photo-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: rgba(8,10,14,0.88); border: 1px solid var(--border);
+      backdrop-filter: blur(12px); border-radius: 8px;
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .badge-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #25d366; box-shadow: 0 0 8px #25d366;
+      flex-shrink: 0;
+    }
+    .badge-text { font-size: 0.82rem; color: var(--text); font-weight: 500; }
+    .services-cards { display: flex; flex-direction: column; gap: 16px; }
+    .service-card {
+      background: var(--black); border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .service-card:hover { border-color: rgba(0,212,255,0.3); transform: translateX(4px); }
+    .service-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+    .service-body {}
+    .service-name {
+      font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .service-tags {
+      margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .tag {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.18);
+      color: var(--accent); padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--black); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .pricing-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 40px 30px;
+      position: relative; text-align: center;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .pricing-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(160deg, rgba(0,212,255,0.07) 0%, var(--surface) 60%);
+    }
+    .pricing-card.featured::after {
+      content: 'POPULAIR'; position: absolute; top: -1px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent); color: var(--black);
+      font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      font-size: 0.7rem; letter-spacing: 0.1em;
+      padding: 4px 14px; border-radius: 0 0 6px 6px;
+    }
+    .pricing-card:hover { transform: translateY(-4px); border-color: rgba(0,212,255,0.4); }
+    .pricing-name {
+      font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .pricing-price {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1;
+    }
+    .pricing-price span { font-size: 1.3rem; color: var(--muted); }
+    .pricing-from { font-size: 0.78rem; color: var(--muted); margin: 4px 0 26px; }
+    .pricing-cta {
+      display: block; width: 100%;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text); font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; font-size: 0.88rem; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 13px;
+      border-radius: 6px; text-decoration: none; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .pricing-cta:hover, .pricing-card.featured .pricing-cta {
+      background: var(--accent); border-color: var(--accent); color: var(--black);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .reviews-section { background: var(--surface); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .review-card {
+      background: var(--black); border: 1px solid var(--border);
+      border-radius: 12px; padding: 30px;
+    }
+    .review-stars { color: #ffd700; font-size: 0.95rem; margin-bottom: 14px; letter-spacing: 3px; }
+    .review-text { font-size: 1rem; color: var(--text); line-height: 1.72; font-style: italic; margin-bottom: 18px; }
+    .review-author { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+
+    /* ── CUSTOM CAR SECTION ── */
+    .custom-section {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+    }
+    .custom-inner { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+    .custom-left { flex: 1; min-width: 280px; }
+    .custom-right { flex: 0 0 auto; }
+    .custom-steps { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .custom-step {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 18px;
+    }
+    .custom-step-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--accent); color: var(--black);
+      font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.88rem;
+    }
+    .custom-step-text { font-size: 0.92rem; color: var(--text); font-weight: 500; }
+
+    /* ── WHY US ── */
+    .why-section { background: var(--surface); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 2px;
+    }
+    .why-item {
+      background: var(--black); padding: 36px 24px;
+      text-align: center; transition: background 0.25s;
+    }
+    .why-item:hover { background: var(--surface2); }
+    .why-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .why-title { font-family: 'Rajdhani', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .why-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--black); }
+    .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .contact-cards { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+    .contact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px 36px;
+      text-decoration: none; transition: border-color 0.25s, transform 0.25s;
+      min-width: 190px; text-align: center;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .contact-card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .contact-card-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+    .contact-card-value { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .contact-card.whatsapp .contact-card-value { color: #25d366; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+    }
+    .footer-logo { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25d366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.55);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.7); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.22s; }
+    .delay-3 { animation-delay: 0.36s; }
+    .delay-4 { animation-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .services-layout { grid-template-columns: 1fr; }
+      .services-photo { height: 280px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item.tall { grid-row: auto; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      section { padding: 64px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .trust-bar { padding: 16px 20px; gap: 20px; }
+      .gallery-section .container { padding: 0 20px; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .transform-strip { grid-template-columns: 1fr; }
+      .custom-inner { flex-direction: column; }
+      footer { padding: 22px 20px; flex-direction: column; text-align: center; }
+    }
