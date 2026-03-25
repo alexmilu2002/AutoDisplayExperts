@@ -43,6 +43,7 @@
       color: var(--muted); transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
+
     .nav-cta {
       background: var(--accent); color: var(--black);
       font-family: 'Rajdhani', sans-serif; font-weight: 700;
